@@ -1,4 +1,4 @@
-/* Copyright 2020, Gonzalo E. Sanchez
+/* Copyright 2020, Carlos German Carreno Romano
  * All rights reserved.
  *
  * This file is part of Workspace.

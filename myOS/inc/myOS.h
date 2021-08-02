@@ -5,8 +5,8 @@
  *      Author: Ing. Carlos German Carreno Romano
  */
 
-#ifndef ISO_I_2020_MSE_OS_INC_MSE_OS_CORE_H_
-#define ISO_I_2020_MSE_OS_INC_MSE_OS_CORE_H_
+#ifndef ISO_I_2020_MSE_OS_INC_MY_OS_H_
+#define ISO_I_2020_MSE_OS_INC_MY_OS_H_
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -15,14 +15,20 @@
 
 
 #define 	DEFAULT_SIZE 	20
+
+/************************************************************************************
+ * 	Tasks
+ ***********************************************************************************/
+
 #define		STACK_SIZE		32
 
-typedef enum taskState {
-	READY,
-	RUNNING,
-	BLOCKED,
-	SUSPENDED
+typedef enum 	myTaskState {
+	TASK_READY,
+	TASK_RUNNING,
+	TASK_BLOCKED,
+	TASK_SUSPENDED
 };
+typedef enum _myTaskState myTaskState;
 
 struct  _myTask {
 
@@ -30,21 +36,33 @@ struct  _myTask {
 	uint32_t 	stack[STACK_SIZE/4];
 	uint32_t 	sp;
 	void 		*entry_point;
-	taskState 	state;
+	myTaskState	state;
 	uint8_t		priority;
 	uint32_t 	blocked_ticks;
 	char		name[DEFAULT_SIZE]
 
-}
+};
+typedef struct 	_myTask 	myTask;
+
 
 /************************************************************************************
- * 			Tamaño del stack predefinido para cada tarea expresado en bytes
+ * 	OS Control
  ***********************************************************************************/
+typedef enum 	_myOSState {
+	OS_RUN,
+	OS_RESET
+};
 
-#define STACK_SIZE 256
+typedef enum 	_myOSState myOSState;
 
-//----------------------------------------------------------------------------------
-
+typedef struct 	_myOSControl {
+	myOSState 	state;
+	bool 		schedulerIRQ;
+	myTask 		*task;
+	myTask  	*nextTask;
+	int32_t 	error;
+};
+typedef struct 	_myOSControl 	myOSControl;
 
 
 /************************************************************************************
@@ -106,18 +124,6 @@ struct  _myTask {
 
 /*==================[definicion de datos para el OS]=================================*/
 
-/********************************************************************************
- * Definicion de los estados posibles para las tareas
- *******************************************************************************/
-
-enum _estadoTarea  {
-	TAREA_READY,
-	TAREA_RUNNING,
-	TAREA_BLOCKED
-};
-
-typedef enum _estadoTarea estadoTarea;
-
 
 /********************************************************************************
  * Definicion de los estados posibles de nuestro OS
@@ -172,4 +178,4 @@ int32_t os_getError(void);
 
 
 
-#endif /* ISO_I_2020_MSE_OS_INC_MSE_OS_CORE_H_ */
+#endif /* ISO_I_2020_MSE_OS_INC_MY_OS_H_ */
