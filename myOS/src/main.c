@@ -1,9 +1,7 @@
 /*==================[inclusions]=============================================*/
 
 #include "main.h"
-
 #include "board.h"
-
 #include "myOS.h"
 
 
