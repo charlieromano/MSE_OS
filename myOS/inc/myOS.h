@@ -101,10 +101,14 @@ typedef struct 	_myOSControl {
 typedef struct 	_myOSControl 	myOSControl;
 
 
-/*==================[definicion de prototipos]=================================*/
+/************************************************************************************
+ * 	FUNCTIONS 
+ ***********************************************************************************/
 
-void os_InitTarea(void *entryPoint, tarea *task);
-void os_Init(void);
-int32_t os_getError(void);
+void 	myOS_InitTask(void *entryPoint, myTask *task);
+void 	myOS_Init(void);
+int32_t myOS_getError(void);
+
+/**********************************************************************************/
 
 #endif /* MSE_OS_INC_MY_OS_H_ */

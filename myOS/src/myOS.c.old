@@ -1,23 +1,17 @@
 /*
- * MSE_OS_Core.c
+ * myOS.h
  *
- *  Created on: 26 mar. 2020
- *      Author: gonza
+ *  Created on: 02 Aug. 2021
+ *      Author: Ing. Carlos German Carreno Romano
  */
 
-#include "MSE_OS_Core.h"
-
-
-
-
-
+#include "myOS.h"
 
 /*==================[definicion de variables globales]=================================*/
 
 static osControl control_OS;
 static tarea tareaIdle;
 
-//----------------------------------------------------------------------------------
 
 /*==================[definicion de prototipos static]=================================*/
 static void initTareaIdle(void);
@@ -137,7 +131,8 @@ void __attribute__((weak)) idleTask(void)  {
 	 *  						la tarea que se esta inicializando.
 	 *  @return     None.
 ***************************************************************************************************/
-void os_InitTarea(void *entryPoint, tarea *task)  {
+void 	myOS_InitTask(void *entryPoint, myTask *task);
+//void os_InitTarea(void *entryPoint, tarea *task)  {
 	static uint8_t id = 0;				//el id sera correlativo a medida que se generen mas tareas
 
 	/*
@@ -208,7 +203,7 @@ void os_InitTarea(void *entryPoint, tarea *task)  {
 	 *  @param 		None.
 	 *  @return     None.
 ***************************************************************************************************/
-void os_Init(void)  {
+void 	myOS_Init(void) {
 	/*
 	 * Todas las interrupciones tienen prioridad 0 (la maxima) al iniciar la ejecucion. Para que
 	 * no se de la condicion de fault mencionada en la teoria, debemos bajar su prioridad en el
