@@ -6,3 +6,16 @@
  */
 
 #include "myOS.h"
+#include "myStack.h"
+
+void 	myOS_InitTask(void *entryPoint, myTask *task){
+
+}
+
+void 	myOS_Init(void){
+
+}
+
+int32_t myOS_getError(void){
+
+}
