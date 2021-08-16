@@ -1,3 +1,6 @@
 [submodule "firmware_v2"]
 	path = firmware_v2
 	url = https://github.com/ciaa/firmware_v2.git
+[submodule "MSE_OS"]
+	path = MSE_OS
+	url = https://github.com/gonzaloesanchez/MSE_OS.git
