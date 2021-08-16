@@ -1,25 +1,13 @@
-/*==================[inclusions]=============================================*/
-
 #include "main.h"
 #include "board.h"
 #include "myOS.h"
+#include "myStack.h"
 
-
-/*==================[macros and definitions]=================================*/
 
 #define MILISEC		1000
 
-/*==================[Global data declaration]==============================*/
 
 tarea g_sTarea1, g_sTarea2, g_sTarea3;
-
-/*==================[internal functions declaration]=========================*/
-
-/*==================[internal data definition]===============================*/
-
-/*==================[external data definition]===============================*/
-
-/*==================[internal functions definition]==========================*/
 
 /** @brief hardware initialization function
  *	@return none
@@ -31,40 +19,6 @@ static void initHardware(void)  {
 }
 
 
-/*==================[Definicion de tareas para el OS]==========================*/
-void tarea1(void)  {
-	uint32_t h = 0;
-	uint32_t i = 0;
-	while (1) {
-		h++;
-		i++;
-	}
-}
-
-void tarea2(void)  {
-	uint32_t j = 0;
-	uint32_t k = 0;
-
-	while (1) {
-		j++;
-		k++;
-	}
-}
-
-void tarea3(void)  {
-	uint32_t l = 0;
-	uint32_t m = 0;
-
-	while (1) {
-		l++;
-		m++;
-	}
-}
-
-
-
-
-/*============================================================================*/
 
 int main(void)  {
 
@@ -82,6 +36,3 @@ int main(void)  {
 	}
 }
 
-/** @} doxygen end group definition */
-
-/*==================[end of file]============================================*/
