@@ -6,7 +6,15 @@
  * 
  */
 
+#include "FreeRTOS.h"
+#include "sapi.h"
+#include "task.h"
+
 #define ANTIREBOTE_MS 20
 
 void myTask( void* taskParmPtr );
+void myTaskLED( void* taskParmPtr );
+void myTaskTEC( void* taskParmPtr );
+
+
 

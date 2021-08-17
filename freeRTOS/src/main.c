@@ -22,20 +22,27 @@ int main(void)
 
    // Led monitor
    gpioWrite( LED3, ON );
+   //tickInit(250);
 
    // Crear tarea en freeRTOS
 	xTaskCreate(
-                myTask,                     // Funcion de la tarea a ejecutar
+                myTaskLED,                     // Funcion de la tarea a ejecutar
 		          (const char *)"myTask",     // Nombre de la tarea como String amigable para el usuario
 					 configMINIMAL_STACK_SIZE*2, // Tama�o del stack de la tarea
 					 0,                          // Parametros de tarea
-					 tskIDLE_PRIORITY+1,         // Prioridad de la tarea
+					 tskIDLE_PRIORITY+2,         // Prioridad de la tarea
 					 0                           // Puntero a la tarea creada en el sistema
               );
 
+   xTaskCreate(myTaskTEC, 
+      (const char *)"myTask", configMINIMAL_STACK_SIZE*2, 
+      0, tskIDLE_PRIORITY+1,0
+      );
+
 	vTaskStartScheduler();
 
-   while( 1 ){
+   while(1){
+
    }
    return 0;
 }
