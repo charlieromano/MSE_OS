@@ -6,10 +6,7 @@
  * 
  */
 
-#include "FreeRTOS.h"
-#include "FreeRTOSConfig.h"
-#include "task.h"
-#include "sapi.h"        // <= sAPI header
+#include "main.h"
 
 DEBUG_PRINT_ENABLE;
 
@@ -36,25 +33,10 @@ int main(void)
 					 0                           // Puntero a la tarea creada en el sistema
               );
 
-   // Iniciar scheduler
 	vTaskStartScheduler();
 
-   // ---------- REPETIR POR SIEMPRE --------------------------
-   while( TRUE )
-   {
-      // Si cae en este while 1 significa que no pudo iniciar el scheduler
+   while( 1 ){
    }
    return 0;
-}
-
-
-
-void myTask( void* taskParmPtr )
-{
-	while(1)
-   {
-		gpioToggle( LEDB );
-		vTaskDelay( 500 / portTICK_RATE_MS );
-	}
 }
 
